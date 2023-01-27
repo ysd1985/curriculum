@@ -1,22 +1,24 @@
 <?php
  
- $fruits = [
-	"りんご"=> [150, 2], 
-	"みかん" => [50, 3], 
-	"もも" => [500, 6]
-];
+ //単価設定の連想配列
+ $fruits =  ['りんご' => 150, 'みかん' => 50, 'もも' => 500];
+
+//個数の連想配列
+$fruitAmount = [2, 3, 6];
 
 //単価×個数＝金額を求める関数:f_total
-function f_total($tanka, $count) {
-	$total = $tanka * $count ;
+function getPrice($単価, $個数) {
+	$合計値 = $単価 * $個数;
 
-  return $total;
+  return $合計値;
 }
 
 // TODO : foreach文を使って$fruitsそれぞれの金額を取得・表示
+$i = 0;
 foreach ($fruits as $key => $value) {
-    print $key ."は".f_total($value[0],$value[1])."円です。<br>\n"; 
-  }
+	echo $key."は".getPrice($value,$fruitAmount[$i])."円です。<br>\n";
+	$i++;
+	}
 ?>
  
  
